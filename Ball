@@ -1,1 +1,4 @@
 public class Ball{
+  private int size = 10;
+  public Ball(){
+    
