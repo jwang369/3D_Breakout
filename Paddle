@@ -1,0 +1,31 @@
+import javax.swing.*;
+import java.awt.*;
+import java.awt.event.*;
+public class Paddle extends JPanel {
+    private int height;
+    private int width;
+    private int x;
+    private int y;
+    public Paddle( int h, int w ) {
+        height = h;
+        width = w;
+        addMouseListener( new Speedy() );
+    }
+    public void draw( Graphics g ){
+        g.setColor(Color.RED);
+        g.fillRect( x-width/2, y-height/2, width, height);
+    }
+    public void setHeight(int h){
+        height = h;
+    }
+    public void setWidth(int w){
+        width = w;
+    }
+    private class Speedy extends MouseAdapter{
+        @Override
+        public void mouseMoved( MouseEvent e ){
+            x = e.getX();
+            y = e.getY();
+        }
+    }
+}
