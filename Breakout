@@ -1,0 +1,30 @@
+import javax.swing.*;
+import java.awt.*;
+public class Breakout extends JFrame {
+    private JPanel jp = new JPanel();
+    public static void main(String[] args) {
+        Breakout f = new Breakout();
+        f.display();
+    }
+
+    public Breakout(){
+        setDefaultCloseOperation(EXIT_ON_CLOSE);
+        setTitle( "3D Breakout" );
+        jp.setBackground( Color.WHITE );
+        jp.setPreferredSize( new Dimension( 1425, 825 ) );
+        jp.setLayout( null );
+        Game mp = new Game();
+        mp.setBounds( 0, 0, 1425, 825 );
+        jp.add( mp );
+        getContentPane().add( jp );
+        pack();
+    }
+
+    public void display() {
+        EventQueue.invokeLater(new Runnable() {
+                public void run() {
+                    setVisible(true);
+                }
+            });
+    }
+}
